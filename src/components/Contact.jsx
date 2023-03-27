@@ -15,8 +15,46 @@ const Contact = () => {
   });
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) => {};
-  const handleSubmit = (e) => {};
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    emailJs
+      .send(
+        "service_vsvuyn5",
+        "template_018uvp5",
+        {
+          from_name: form.name,
+          to_name: "Donny",
+          from_email: form.email,
+          to_email: "doniwahyu14@gmail.com",
+          message: form.message,
+        },
+        "DhXT138w-C8udZXMI"
+      )
+      .then(
+        () => {
+          setLoading(false);
+          alert(
+            "Thank you for contacting me. I will reply your message as soon as possible"
+          );
+          setForm({
+            name: "",
+            email: "",
+            message: "",
+          });
+        },
+        (error) => {
+          setLoading(false);
+          alert("Something when wrong.");
+        }
+      );
+  };
 
   return (
     <div
@@ -72,7 +110,8 @@ const Contact = () => {
           </label>
           <button
             type="submit"
-            className="bg-tertiary py-3 px-8 outline-none w-fit text-white font-bold shadow-md shadow-primary rounded-xl"
+            className="bg-tertiary py-3 px-8 outline-none w-fit text-white font-bold shadow-md shadow-primary rounded-xl 
+             hover:bg-[#220738]"
           >
             {loading ? "Sending..." : "Send"}
           </button>
