@@ -21,9 +21,12 @@ const Navbar = () => {
             window.scrollTo(0, 0);
           }}
         >
-          <img src={logo} alt="Logo" className="w-9 h-9 object-contain" />
+          <img src={logo} alt="Logo" className="h-9 w-9 object-contain" />
           <p className="text-white text-[18px] font-bold cursor-pointer flex">
-            Donny &nbsp;<span className="sm:block hidden">| Javascript</span>
+            DNY.CO | &nbsp;
+            <span className="sm:block hidden font-medium text-sm mt-1">
+              Your perfect virtual bae
+            </span>
           </p>
         </Link>
         <ul className="list-none hidden sm:flex flex-row gap-10">
